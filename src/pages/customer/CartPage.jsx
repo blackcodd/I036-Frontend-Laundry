@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
+
+
 import   { motion } from "framer-motion";
 import { useCartStore } from "../../context/store";
 import { useNavigate } from "react-router-dom";

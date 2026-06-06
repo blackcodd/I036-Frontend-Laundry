@@ -1,4 +1,9 @@
 
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
+
 import { Toaster } from "react-hot-toast";
 import AppRoutes from "./index.jsx";
 

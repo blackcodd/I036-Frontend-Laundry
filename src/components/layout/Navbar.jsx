@@ -1,3 +1,9 @@
+
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
+
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../../context/store";
 import { Menu, X } from "lucide-react";

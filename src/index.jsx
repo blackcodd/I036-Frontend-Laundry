@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./context/store";
 

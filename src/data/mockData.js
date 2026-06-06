@@ -1,4 +1,10 @@
 // Mock data for shops
+
+
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
 export const mockShops = [
   {
     id: 1,

@@ -1,3 +1,10 @@
+
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
+
+
 import { motion } from "framer-motion";
 
 

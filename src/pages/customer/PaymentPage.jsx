@@ -1,3 +1,8 @@
+
+/*
+ * Copyright (c) 2026 Srabon Das
+ * All Rights Reserved.
+ */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
