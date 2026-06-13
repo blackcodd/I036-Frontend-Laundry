@@ -6,11 +6,67 @@ export const useAuthStore = create((set) => ({
   isAuthenticated: !!localStorage.getItem("token"),
   role: localStorage.getItem("role") || null,
 
-  login: (user, token, role) => {
-    localStorage.setItem("token", token);
-    localStorage.setItem("role", role);
-    set({ user, token, isAuthenticated: true, role });
+  login: async (email,password) => {
+    try{
+      console.log("called by ");
+      const res=await fetch(
+        "https://localhost:7022/api/Login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password
+            
+          })
+
+        }
+      );
+      const data=await res.json();
+      console.log(data);
+      localStorage.setItem("token",data.token);
+      localStorage.setItem("role",data.role);
+      return data;
+
+    }
+   catch(error){
+    console.error(error);
+   };
+   
   },
+
+  register: async (name, email, password, role) => {
+  try {
+    console.log("Register called");
+
+    const response = await fetch(
+      "https://localhost:7022/api/Register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          role,
+        }),
+      }
+    );
+
+    console.log("Status:", response.status);
+
+    const data = await response.json();
+
+    console.log("Response:", data);
+
+    return data;
+  } catch (error) {
+    console.error("Register Error:", error);
+  }
+},
 
   logout: () => {
     localStorage.removeItem("token");

@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 export default function RegisterPage() {
   const navigate = useNavigate();
   const { login } = useAuthStore();
+  const {register}=useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("customer");
   const [formData, setFormData] = useState({
@@ -48,11 +49,8 @@ export default function RegisterPage() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      login(
-        { email: formData.email, name: formData.name, role },
-        "mock-token-" + Date.now(),
-        role
-      );
+       const logdetails= await register(formData.name,formData.email,formData.password,role);
+       var regstatus= await logdetails.json();
 
       Swal.fire({
         title: "Success!",
@@ -69,7 +67,7 @@ export default function RegisterPage() {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: "Registration failed. Please try again.",
+        text: error,
         icon: "error",
         confirmButtonColor: "#06B6D4",
       });

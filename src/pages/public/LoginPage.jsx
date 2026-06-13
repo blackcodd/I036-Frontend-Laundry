@@ -35,19 +35,15 @@ export default function LoginPage() {
     }
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Mock login - replace with actual API call
-      login(
-        { email: formData.email, name: formData.email.split("@")[0], role },
-        "mock-token-" + Date.now(),
-        role
-      );
-
+       const res= await login(formData.email,formData.password);
+       console.log(res);
+       setRole(res.role);
+       
       Swal.fire({
         title: "Success!",
-        text: "Logged in successfully",
+        text: res.massage ,
         icon: "success",
         confirmButtonColor: "#06B6D4",
       });
@@ -57,7 +53,8 @@ export default function LoginPage() {
       } else {
         navigate("/owner/dashboard");
       }
-    } catch (error) {
+    }
+     catch (error) {
       Swal.fire({
         title: "Error!",
         text: "Login failed. Please try again.",
